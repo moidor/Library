@@ -1,0 +1,16 @@
+
+
+// Fichier de données à importer en BDD
+
+//book;Anna Karénine;1878;Il est considéré comme un chef-d'œuvre de la littérature.;;;
+//book;Zadig;1748;Histoire d'un jeune homme au Moyen-Orient.;;;
+//book;Notre-Dame de Paris;1831;L'intrigue se déroule à Paris en 1482. Les deux premiers livres (I et II) du roman suivent Pierre Gringoire, poète sans le sou. Gringoire est l'auteur d'un mystère qui doit être représenté le 6 janvier 1482 au Palais de justice en l'honneur d'une ambassade flamande.;Victor;Hugo;
+
+//author;Tolstoï;Léon;1828;Iasnaïa;Russia;Russian;
+//author;de Musset;Alfred;1810;Paris;France;French;
+
+//customer;Loiseau;Josiane;1956;4 avenue des Coquelicots;44300;Nantes;France;French;
+
+//seller;Flammarion;Paris;France;
+
+order;Loiseau;Josiane;Flammarion;Anna Karénine;2022-06-18;

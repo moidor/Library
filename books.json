@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Les Misérables",
+    "year": 1862,
+    "summary": "Ouvrage classique de la littérature française rédigée par Victor Hugo",
+    "id_author": 1
+  },
+  {
+    "id": 2,
+    "title": "Les frères Karamazov",
+    "year": 1880,
+    "summary": "Ouvrage classique de la littérature russe rédigée par Fiodor Mikhaïlovitch Dostoievski",
+    "id_author": 2
+  }
+]

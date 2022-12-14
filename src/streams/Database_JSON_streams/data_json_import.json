@@ -1,0 +1,10 @@
+{
+    "authors": [
+        {"lastname": "Zola", "firstname": "Émile", "year_of_birth": 1840,
+            "city": "Paris","country": "France", "literature_language":  "French"}
+    ],
+    "books": [
+        {"title": "L'assommoir", "year": 1876, "summary": "Histoire de Gervaise et des ravages de l'alcool en France.",
+            "author_firstname": "Émile", "author_lastname": "Zola"}
+    ]
+}
