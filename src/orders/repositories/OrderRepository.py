@@ -14,9 +14,9 @@ class OrderRepository(Connection):
         command = f"""
                 SELECT Orders.id, Orders.orderDate, Customers.firstname, Customers.lastname, Sellers.name, Books.title
                 FROM (((Orders
-                INNER JOIN Customers ON Orders.CustomerID = Customers.id)
-                INNER JOIN Sellers ON Orders.id = Sellers.id)
-                INNER JOIN Books on Orders.id = Books.id)
+                LEFT JOIN Customers ON Orders.CustomerID = Customers.id)
+                LEFT JOIN Sellers ON Orders.sellerId = Sellers.id)
+                LEFT JOIN Books on Orders.bookId = Books.id)
                 WHERE Orders.id = {number_int};
                 """
         cursor = Connection.conn.execute(command)

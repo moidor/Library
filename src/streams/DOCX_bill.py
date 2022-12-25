@@ -5,7 +5,7 @@ def create_order_bill_docx(text, order_number, customer_lastname, order_date):
     bill_name = f"C:\\Users\\Cham\\PycharmProjects\\Library\\src\\streams\\" \
                 f"order_bill n°{order_number}-{customer_lastname}-{order_date[:10]}.docx"
     bill_exists = os.path.exists(bill_name)
-    print(bill_exists)
+    print(f"Was the bill already printed ? {bill_exists}")
     if bill_exists:
         bill = open(bill_name, 'w')
         bill.write(text)
