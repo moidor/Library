@@ -5,7 +5,7 @@ from src.streams.Database_text_streams.Customers_stream import customers_stream
 from src.streams.Database_text_streams.Orders_stream import orders_stream
 from src.streams.Database_text_streams.Sellers_stream import sellers_stream
 
-# def excel_stream():
+
 workbook = openpyxl.load_workbook("C:\\Users\\Cham\\PycharmProjects\\Library\\src\\streams\\Tableur.xlsx")
 sheets = workbook.sheetnames
 # print(sheets)
@@ -60,7 +60,7 @@ class Database_Excel_stream:
                         # Récupération du contenu de la cellule itérée
                         cell_content = booksSheet.cell(row=row, column=column)
                         book_list.append(cell_content.value)  # Ajout de la cellule à la liste "book"
-                        # IMPORTANT, on ne retient que les listes contenant les 6 arguments de l'objet "book"
+                        # IMPORTANT, on ne retient que les listes contenant les 5 arguments de l'objet "book"
                         if len(book_list) == 5:
                             # print(book_list)
                             title, year, summary, author_firstname, author_lastname = \
@@ -78,7 +78,7 @@ class Database_Excel_stream:
                         # Récupération du contenu de la cellule itérée
                         cell_content = customersSheet.cell(row=row, column=column)
                         customer_list.append(cell_content.value)  # Ajout de la cellule à la liste "customer"
-                        # IMPORTANT, on ne retient que les listes contenant les 6 arguments de l'objet "customer"
+                        # IMPORTANT, on ne retient que les listes contenant les 8 arguments de l'objet "customer"
                         if len(customer_list) == 8:
                             print(customer_list)
                             lastname, firstname, year_of_birth, address, zip_code, city, country, language = \
@@ -98,26 +98,26 @@ class Database_Excel_stream:
                         # Récupération du contenu de la cellule itérée
                         cell_content = ordersSheet.cell(row=row, column=column)
                         order_list.append(cell_content.value)  # Ajout de la cellule à la liste "order"
-                        # IMPORTANT, on ne retient que les listes contenant les 6 arguments de l'objet "order"
+                        # IMPORTANT, on ne retient que les listes contenant les 5 arguments de l'objet "order"
                         if len(order_list) == 5:
                             print(order_list)
                             customer_lastname, customer_firstname, seller_name, book_title, date = \
                                 order_list[0], order_list[1], order_list[2], order_list[3], order_list[4]
                             orders_stream(customer_lastname, customer_firstname, seller_name, book_title, date)
 
-            # if sellersSheet :
-            #     seller_rows = sellersSheet.max_row
-            #     seller_columns = sellersSheet.max_column
-            #     # Itération sur toutes les lignes à partir de la deuxième pour ignorer les libellés de colonnes
-            #     for row in range(2, seller_rows + 1):  # rows: max_row + 1 pour itérer jusqu'à la dernière ligne
-            #         # Instanciation d'une nouvelle liste à chaque itération de ligne afin d'y insérer un (objet) auteur
-            #         seller_list = list()
-            #         for column in range(1, seller_columns + 1):
-            #             # Récupération du contenu de la cellule itérée
-            #             cell_content = sellersSheet.cell(row=row, column=column)
-            #             seller_list.append(cell_content.value)  # Ajout de la cellule à la liste "author"
-            #             # IMPORTANT, on ne retient que les listes contenant les 6 arguments de l'objet "author"
-            #             if len(seller_list) == 3:
-            #                 print(seller_list)
-            #                 seller_name, city, country = seller_list[0], seller_list[1], seller_list[2]
-            #                 sellers_stream(seller_name, city, country)
+            if sellersSheet:
+                seller_rows = sellersSheet.max_row
+                seller_columns = sellersSheet.max_column
+                # Itération sur toutes les lignes à partir de la deuxième pour ignorer les libellés de colonnes
+                for row in range(2, seller_rows + 1):  # rows: max_row + 1 pour itérer jusqu'à la dernière ligne
+                    # Instanciation d'une nouvelle liste à chaque itération de ligne afin d'y insérer un (objet) vendeur
+                    seller_list = list()
+                    for column in range(1, seller_columns + 1):
+                        # Récupération du contenu de la cellule itérée
+                        cell_content = sellersSheet.cell(row=row, column=column)
+                        seller_list.append(cell_content.value)  # Ajout de la cellule à la liste "seller"
+                        # IMPORTANT, on ne retient que les listes contenant les 3 arguments de l'objet "seller"
+                        if len(seller_list) == 3:
+                            print(seller_list)
+                            seller_name, city, country = seller_list[0], seller_list[1], seller_list[2]
+                            sellers_stream(seller_name, city, country)
